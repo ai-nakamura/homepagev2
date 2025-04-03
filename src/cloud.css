@@ -1,13 +1,5 @@
-.center {
-    top:50%;
-    left:50%;
-    /*transform: translate(-50%,-50%);*/
-}
-
 .cloud {
     background: rgba(255, 255, 255);
-    /*width: 80%;*/
-    /*height: 100px;*/
     border-radius: 150px;
     box-shadow: 10px 10px rgba(0,0,0,0.2);
     padding: 2em 6em;
@@ -25,23 +17,68 @@
     display: block;
     content: '';
     background: rgba(255, 255, 255);
-    /*position: absolute;*/
     width: 30%;
     height: 80%;
     border-radius: 50%;
-    /*top: -50px;*/
-    /*left: 80px;*/
     margin-left: 60px;
 }
 
 .cloud-top-right {
     content: '';
     background: rgba(255, 255, 255);
-    /*position: absolute;*/
+    position: relative;
     width: 35%;
     height: 100%;
     border-radius: 50%;
     margin-left: -30px;
-    /*top: -90px;*/
-    /*right: 40px;*/
+}
+
+.sun {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: gold;
+    border-radius: 50%;
+    right:-40px;
+    z-index: -1;
+    transition: transform 1s ease-out;
+}
+
+/* Shared animation properties */
+.sun.rising,
+.sun.setting {
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+/* Rising */
+.sun.rising {
+    transform: translate(100px, -40px);
+}
+
+/* Setting */
+.sun.setting {
+    transform: translate(-100px, 100px);
+}
+
+@keyframes riseRotate {
+    from {
+        top: 80px;
+        transform: rotate(0deg);
+    }
+    to {
+        top: 10px;
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes setRotate {
+    from {
+        top: 10px;
+        transform: rotate(15deg);
+    }
+    to {
+        top: 80px;
+        transform: rotate(0deg);
+    }
 }
