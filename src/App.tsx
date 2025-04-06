@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import githHubLogo from '/github.svg'
-import linkedInLogo from '/linkedin-1.svg'
+import resumeIcon from '/resume-2.svg'
+import linkedInIcon from '/linkedin-1.svg'
+import gitHubIcon from '/github.svg'
 // import sun from '/sun.svg'
 import './App.css'
 import './cloud.css'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [sunState, setSunState] = useState('idle') // 'idle' | 'rising' | 'setting'
 
   const handleMouseEnter = () => {
@@ -31,22 +31,24 @@ function App() {
           <div>
             <h2>Ai Nakamura</h2>
             <h5>Senior Analyst and Web Developer</h5>
+            <div>
+            <a href="/Master-Resume.pdf" target="_blank">
+              <img src={resumeIcon} className="logo" alt="Resume icon"
+                   onMouseEnter={handleMouseEnter}
+                   onMouseLeave={handleMouseLeave}/>
+            </a>
             <a href="https://linkedin.com/in/ai-nakamura" target="_blank">
-              <img src={linkedInLogo} className="logo" alt="LinkedIn logo" />
+              <img src={linkedInIcon} className="logo" alt="LinkedIn icon"
+                   onMouseEnter={handleMouseEnter}
+                   onMouseLeave={handleMouseLeave}/>
             </a>
             <a href="https://github.com/ai-nakamura" target="_blank">
-              <img src={githHubLogo} className="logo" alt="GitHub logo" />
+              <img src={gitHubIcon} className="logo" alt="GitHub icon"
+                   onMouseEnter={handleMouseEnter}
+                   onMouseLeave={handleMouseLeave}/>
             </a>
+            </div>
           </div>
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <button
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            Make the sun rise
-          </button>
         </div>
     </>
   )
