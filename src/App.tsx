@@ -1,57 +1,78 @@
-import { useState } from 'react'
-import resumeIcon from '/resume-2.svg'
-import linkedInIcon from '/linkedin-1.svg'
-import gitHubIcon from '/github.svg'
+import { useState } from 'react';
+import resumeIcon from '/resume-2.svg';
+import linkedInIcon from '/linkedin-1.svg';
+import gitHubIcon from '/github.svg';
 // import sun from '/sun.svg'
-import './App.css'
-import './cloud.css'
+import './App.css';
+import './cloud.css';
 
 function App() {
-  const [sunState, setSunState] = useState('idle') // 'idle' | 'rising' | 'setting'
+  const [sunState, setSunState] = useState<'idle' | 'rising' | 'setting'>(
+    'idle'
+  );
 
   const handleMouseEnter = () => {
-    setSunState('rising')
-  }
+    setSunState('rising');
+  };
 
   const handleMouseLeave = () => {
-    setSunState('setting')
-  }
-
-
+    setSunState('setting');
+  };
 
   return (
     <>
       <div className="cloud-top">
-      <div className="cloud-top-left"></div>
-      <div className="cloud-top-right">
-        <div className={`sun ${sunState}`} />
+        <div className="cloud-top-left"></div>
+        <div className="cloud-top-right">
+          <div className={`sun ${sunState}`} />
+        </div>
       </div>
-      </div>
-        <div className="cloud">
-          <div>
-            <h2>Ai Nakamura</h2>
-            <h5>Senior Analyst and Web Developer</h5>
-            <div>
-            <a href="/Master-Resume.pdf" target="_blank">
-              <img src={resumeIcon} className="logo" alt="Resume icon"
-                   onMouseEnter={handleMouseEnter}
-                   onMouseLeave={handleMouseLeave}/>
+      <div className="cloud">
+        <div className="content">
+          <h2>Ai Nakamura</h2>
+          <h5>Senior Analyst and Web Developer</h5>
+          <br />
+          <br />
+
+          <div className="icons">
+            <a className="icon" href="/Master-Resume.pdf" target="_blank">
+              <img
+                src={resumeIcon}
+                className="icon"
+                alt="Resume icon"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              />
             </a>
-            <a href="https://linkedin.com/in/ai-nakamura" target="_blank">
-              <img src={linkedInIcon} className="logo" alt="LinkedIn icon"
-                   onMouseEnter={handleMouseEnter}
-                   onMouseLeave={handleMouseLeave}/>
+            <a
+              className="icon"
+              href="https://linkedin.com/in/ai-nakamura"
+              target="_blank">
+              <img
+                src={linkedInIcon}
+                className="icon"
+                alt="LinkedIn icon"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              />
             </a>
-            <a href="https://github.com/ai-nakamura" target="_blank">
-              <img src={gitHubIcon} className="logo" alt="GitHub icon"
-                   onMouseEnter={handleMouseEnter}
-                   onMouseLeave={handleMouseLeave}/>
+            <a
+              className="icon"
+              href="https://github.com/ai-nakamura"
+              target="_blank">
+              <img
+                src={gitHubIcon}
+                className="icon"
+                alt="GitHub icon"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              />
             </a>
-            </div>
           </div>
         </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
